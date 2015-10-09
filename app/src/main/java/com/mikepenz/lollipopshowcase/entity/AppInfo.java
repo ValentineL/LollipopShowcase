@@ -11,6 +11,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
+import com.mikepenz.lollipopshowcase.Result;
 
 import java.util.Locale;
 
@@ -36,7 +37,7 @@ public class AppInfo implements Comparable<Object> {
         }
     }
 
-    public String getName() {
+    /*public String getName() {
         if (name != null) {
             return name;
         } else {
@@ -46,57 +47,57 @@ public class AppInfo implements Comparable<Object> {
                 return getPackageName();
             }
         }
-    }
+    }*/
 
-    public String getActivityName() {
+/*    public String getActivityName() {
         return ri.activityInfo.name;
-    }
+    }*/
 
-    public String getPackageName() {
+/*    public String getPackageName() {
         return ri.activityInfo.packageName;
-    }
+    }*/
 
-    public ComponentName getComponentName() {
+/*    public ComponentName getComponentName() {
         return componentName;
-    }
+    }*/
 
-    public String getComponentInfo() {
+    /*public String getComponentInfo() {
         if (getComponentName() != null) {
             return getComponentName().toString();
         } else {
             return "";
         }
-    }
+    }*/
 
-    public ResolveInfo getResolveInfo() {
+    /*public ResolveInfo getResolveInfo() {
         return ri;
     }
 
     public PackageInfo getPackageInfo() {
         return pi;
-    }
+    }*/
 
-    public String getVersionName() {
+    /*public String getVersionName() {
         PackageInfo pi = getPackageInfo();
         if (pi != null) {
             return pi.versionName;
         } else {
             return "";
         }
-    }
+    }*/
 
-    public int getVersionCode() {
+    /*public int getVersionCode() {
         PackageInfo pi = getPackageInfo();
         if (pi != null) {
             return pi.versionCode;
         } else {
             return 0;
         }
-    }
+    }*/
 
     public Drawable getIcon() {
         if (icon == null) {
-            icon = getResolveInfo().loadIcon(ctx.getPackageManager());
+            icon = response.img;
             /*
             Drawable dr = getResolveInfo().loadIcon(ctx.getPackageManager());
             Bitmap bitmap = ((BitmapDrawable) dr).getBitmap();

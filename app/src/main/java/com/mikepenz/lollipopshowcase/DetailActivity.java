@@ -23,7 +23,7 @@ import android.widget.TextView;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.lollipopshowcase.entity.AppInfo;
-import com.mikepenz.lollipopshowcase.util.UploadHelper;
+/*import com.mikepenz.lollipopshowcase.util.UploadHelper;*/
 
 import java.util.Date;
 
@@ -58,9 +58,9 @@ public class DetailActivity extends AppCompatActivity {
         });
 
         // Fab Button
-        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.fab_normal);
+        /*FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.fab_normal);
         floatingActionButton.setImageDrawable(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_file_upload).color(Color.WHITE).actionBar());
-        floatingActionButton.setOnClickListener(fabClickListener);
+        floatingActionButton.setOnClickListener(fabClickListener);*/
 
         //getWindow().getEnterTransition().removeListener(this);
 
@@ -118,12 +118,12 @@ public class DetailActivity extends AppCompatActivity {
     /**
      * a sample onClickListener for the upload view
      */
-    View.OnClickListener fabClickListener = new View.OnClickListener() {
+    /*View.OnClickListener fabClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             UploadHelper.getInstance(DetailActivity.this, null).upload(mAppInfo);
         }
-    };
+    };*/
 
     /**
      * fill the rows with some information

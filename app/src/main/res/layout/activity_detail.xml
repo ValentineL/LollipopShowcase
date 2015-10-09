@@ -65,7 +65,7 @@
         </ScrollView>
     </RelativeLayout>
 
-    <android.support.design.widget.FloatingActionButton
+    <!--<android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_normal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,5 +74,5 @@
         android:elevation="8dp"
         android:stateListAnimator="@anim/fab_anim"
         android:transitionName="fab"
-        app:fabSize="normal" />
+        app:fabSize="normal" />-->
 </android.support.design.widget.CoordinatorLayout>

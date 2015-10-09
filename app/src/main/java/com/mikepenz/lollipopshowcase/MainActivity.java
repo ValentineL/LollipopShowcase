@@ -27,7 +27,7 @@ import com.mikepenz.iconics.typeface.FontAwesome;
 import com.mikepenz.lollipopshowcase.adapter.ApplicationAdapter;
 import com.mikepenz.lollipopshowcase.entity.AppInfo;
 import com.mikepenz.lollipopshowcase.itemanimator.CustomItemAnimator;
-import com.mikepenz.lollipopshowcase.util.UploadHelper;
+/*import com.mikepenz.lollipopshowcase.util.UploadHelper;*/
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
@@ -40,20 +40,20 @@ import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int DRAWER_ITEM_SWITCH = 1;
-    private static final int DRAWER_ITEM_OPEN_SOURCE = 10;
+    /*private static final int DRAWER_ITEM_SWITCH = 1;
+    private static final int DRAWER_ITEM_OPEN_SOURCE = 10;*/
 
     private List<AppInfo> applicationList = new ArrayList<AppInfo>();
 
     private Drawer drawer;
 
     private ApplicationAdapter mAdapter;
-    private FloatingActionButton mFabButton;
+    /*private FloatingActionButton mFabButton;*/
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private ProgressBar mProgressBar;
 
-    private static UploadHelper.UploadComponentInfoTask uploadComponentInfoTask = null;
+    /*private static UploadHelper.UploadComponentInfoTask uploadComponentInfoTask = null;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         drawer = new DrawerBuilder(this)
                 .withToolbar(toolbar)
-                .addDrawerItems(
+                /*.addDrawerItems(
                         new SwitchDrawerItem().withOnCheckedChangeListener(new OnCheckedChangeListener() {
                             @Override
                             public void onCheckedChanged(IDrawerItem drawerItem, CompoundButton compoundButton, boolean b) {
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         return false;
                     }
-                })
+                })*/
                 .withSelectedItem(-1)
                 .withSavedInstance(savedInstanceState)
                 .build();
@@ -108,9 +108,9 @@ public class MainActivity extends AppCompatActivity {
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         // Fab Button
-        mFabButton = (FloatingActionButton) findViewById(R.id.fab_normal);
+        /*mFabButton = (FloatingActionButton) findViewById(R.id.fab_normal);
         mFabButton.setImageDrawable(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_file_upload).color(Color.WHITE).actionBar());
-        mFabButton.setOnClickListener(fabClickListener);
+        mFabButton.setOnClickListener(fabClickListener);*/
 
         mRecyclerView = (RecyclerView) findViewById(R.id.list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -132,13 +132,13 @@ public class MainActivity extends AppCompatActivity {
 
         new InitializeApplicationsTask().execute();
 
-        if (savedInstanceState != null) {
+        /*if (savedInstanceState != null) {
             if (uploadComponentInfoTask != null) {
                 if (uploadComponentInfoTask.isRunning) {
                     uploadComponentInfoTask.showProgress(this);
                 }
             }
-        }
+        }*/
 
         //show progress
         mRecyclerView.setVisibility(View.GONE);
@@ -158,19 +158,19 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     protected void onDestroy() {
-        UploadHelper.getInstance(null, null).destroy();
+        /*UploadHelper.getInstance(null, null).destroy();*/
         super.onDestroy();
     }
 
     /**
      * sample onClickListener with an AsyncTask as action
      */
-    View.OnClickListener fabClickListener = new View.OnClickListener() {
+    /*View.OnClickListener fabClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             uploadComponentInfoTask = UploadHelper.getInstance(MainActivity.this, applicationList).uploadAll();
         }
-    };
+    };*/
 
     /**
      * helper class to start the new detailActivity animated
@@ -182,8 +182,8 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, DetailActivity.class);
         i.putExtra("appInfo", appInfo.getComponentName());
 
-        ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(this, Pair.create((View) mFabButton, "fab"), Pair.create(appIcon, "appIcon"));
-        startActivity(i, transitionActivityOptions.toBundle());
+        /*ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(this, Pair.create((View) mFabButton, "fab"), Pair.create(appIcon, "appIcon"));*/
+        startActivity(i);
     }
 
 

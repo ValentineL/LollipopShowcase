@@ -1,3 +1,4 @@
+/*
 package com.mikepenz.lollipopshowcase.util;
 
 import android.app.Activity;
@@ -12,9 +13,11 @@ import com.mikepenz.lollipopshowcase.entity.AppInfo;
 import java.util.ArrayList;
 import java.util.List;
 
+*/
 /**
  * Created by mikepenz on 18.10.14.
- */
+ *//*
+
 public class UploadHelper {
     private static UploadHelper instance = null;
 
@@ -129,11 +132,13 @@ public class UploadHelper {
         }
     }
 
-    /**
+    */
+/**
      * we do not really want to upload something here. So there's just a placeholder method for this
      *
      * @return
-     */
+     *//*
+
     public boolean postData() {
         try {
             Thread.sleep(100);
@@ -143,3 +148,4 @@ public class UploadHelper {
         return false;
     }
 }
+*/
