@@ -50,9 +50,8 @@ public class JSONParser extends MainActivity {
 
         SearchResponse response = gson.fromJson(reader, SearchResponse.class);
 
-        response.
+        response.getMechanics();
 
-        /*List<Result> results = response.;*/
 
 
 

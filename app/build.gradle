@@ -70,4 +70,5 @@ dependencies {
 
     compile 'com.facebook.rebound:rebound:0.3.6'
     compile 'com.google.code.gson:gson:2.4'
+    compile 'io.realm:realm-android:0.83.0'
 }
