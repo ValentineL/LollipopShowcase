@@ -83,8 +83,8 @@ dependencies {
     compile 'com.facebook.rebound:rebound:0.3.6'
     compile 'com.google.code.gson:gson:2.4'
     compile 'io.realm:realm-android:0.83.0'
-    /*compile 'org.json:json:20150729'
+    compile 'org.json:json:20150729'
     compile 'org.apache.httpcomponents:httpclient:4.3.6'
     compile 'org.apache.httpcomponents:httpmime:4.3.6'
-    compile 'org.apache.httpcomponents:httpasyncclient:4.0.2'*/
+    compile 'org.apache.httpcomponents:httpasyncclient:4.0.2'
 }
