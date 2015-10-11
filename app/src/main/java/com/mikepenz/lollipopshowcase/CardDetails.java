@@ -3,6 +3,8 @@ package com.mikepenz.lollipopshowcase;
 import java.util.ArrayList;
 
 public class CardDetails {
+
+    private long id;
     private String cardId;
     private String name;
     private String cardSet;

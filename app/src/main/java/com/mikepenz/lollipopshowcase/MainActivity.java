@@ -3,43 +3,28 @@ package com.mikepenz.lollipopshowcase;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ResolveInfo;
-import android.graphics.Color;
+import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.util.Pair;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 
-import com.mikepenz.aboutlibraries.Libs;
-import com.mikepenz.aboutlibraries.LibsBuilder;
-import com.mikepenz.google_material_typeface_library.GoogleMaterial;
-import com.mikepenz.iconics.IconicsDrawable;
-import com.mikepenz.iconics.typeface.FontAwesome;
 import com.mikepenz.lollipopshowcase.adapter.ApplicationAdapter;
 import com.mikepenz.lollipopshowcase.entity.AppInfo;
 import com.mikepenz.lollipopshowcase.itemanimator.CustomItemAnimator;
 /*import com.mikepenz.lollipopshowcase.util.UploadHelper;*/
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SwitchDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.OnCheckedChangeListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     /*private static final int DRAWER_ITEM_SWITCH = 1;
     private static final int DRAWER_ITEM_OPEN_SOURCE = 10;*/
 
@@ -52,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private ProgressBar mProgressBar;
+    private DBHelper db;
+    private Cursor cursorForId;
+    private CardDetails ID;
 
     /*private static UploadHelper.UploadComponentInfoTask uploadComponentInfoTask = null;*/
 
@@ -63,13 +51,13 @@ public class MainActivity extends AppCompatActivity {
         // Handle Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         final SharedPreferences pref = getSharedPreferences("com.mikepenz.applicationreader", 0);
 
-        drawer = new DrawerBuilder(this)
+        /*drawer = new DrawerBuilder(this)
                 .withToolbar(toolbar)
-                /*.addDrawerItems(
+                *//*.addDrawerItems(
                         new SwitchDrawerItem().withOnCheckedChangeListener(new OnCheckedChangeListener() {
                             @Override
                             public void onCheckedChanged(IDrawerItem drawerItem, CompoundButton compoundButton, boolean b) {
@@ -99,10 +87,10 @@ public class MainActivity extends AppCompatActivity {
                         }
                         return false;
                     }
-                })*/
-                .withSelectedItem(-1)
+                })*//*
+
                 .withSavedInstance(savedInstanceState)
-                .build();
+                .build();*/
 
         // Handle ProgressBar
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -143,6 +131,38 @@ public class MainActivity extends AppCompatActivity {
         //show progress
         mRecyclerView.setVisibility(View.GONE);
         mProgressBar.setVisibility(View.VISIBLE);
+
+//        try {
+//
+//            db.createDataBase();
+//
+//        }
+//        catch (IOException ioe) {
+//
+//            throw new Error("Unable to create database");
+//
+////        }
+//
+//        try {
+//
+//            db.openDataBase();
+//
+//        }catch(SQLException sqle){
+//
+//            throw sqle;
+//
+//        }
+//
+//        db = new DBHelper(getApplicationContext());
+//        cursorForId = db.getCardId();
+//        cursorForId.moveToFirst();
+
+        /*SearchResponse response;
+        JSONArray json = new JSONArray(response);*/
+
+
+
+
     }
 
     @Override

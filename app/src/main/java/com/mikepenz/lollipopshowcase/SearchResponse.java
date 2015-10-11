@@ -7,45 +7,46 @@ import java.util.List;
 
 
 public class SearchResponse {
+    public long id;
 
     @SerializedName("cardId")
-    public String cardId;
+    private String cardId;
     @SerializedName("name")
-    public String name;
+    private String name;
     @SerializedName("cardSet")
-    public String cardSet;
+    private String cardSet;
     @SerializedName("type")
-    public String type;
+    private String type;
     @SerializedName("faction")
-    public String faction;
+    private String faction;
     @SerializedName("rarity")
-    public String rarity;
+    private String rarity;
     @SerializedName("cost")
-    public int cost;
+    private int cost;
     @SerializedName("attack")
-    public int attack;
+    private int attack;
     @SerializedName("health")
-    public int health;
+    private int health;
     @SerializedName("text")
-    public String text;
+    private String text;
     @SerializedName("inPlayText")
-    public String inPlayText;
+    private String inPlayText;
     @SerializedName("flavor")
-    public String flavor;
+    private String flavor;
     @SerializedName("artist")
-    public String artist;
+    private String artist;
     @SerializedName("collectible")
-    public Boolean collectible;
+    private Boolean collectible;
     @SerializedName("elite")
-    public Boolean elite;
+    private Boolean elite;
     @SerializedName("img")
-    public String img;
+    private String img;
     @SerializedName("imgGold")
-    public String imgGold;
+    private String imgGold;
     @SerializedName("locale")
-    public String locale;
+    private String locale;
     @SerializedName("mechanics")
-    private ArrayList<Mechanics> mechanics = new ArrayList<>();
+    private ArrayList<Mechanic> mechanics = new ArrayList<>();
 
     public String getCardId() {
         return cardId;
@@ -191,11 +192,11 @@ public class SearchResponse {
         this.locale = locale;
     }
 
-    public List<Mechanics> getMechanics() {
+    public List<Mechanic> getMechanics() {
         return mechanics;
     }
 
-    public void setMechanics(ArrayList<Mechanics> mechanics) {
+    public void setMechanics(ArrayList<Mechanic> mechanics) {
         this.mechanics = mechanics;
     }
 }
