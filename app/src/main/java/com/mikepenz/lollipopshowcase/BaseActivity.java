@@ -30,8 +30,6 @@ import com.google.gson.reflect.TypeToken;
 
 public class BaseActivity extends AppCompatActivity {
 
-    private static final String TAG = "PostsActivity";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +39,8 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     private class SimpleTask extends AsyncTask<Void, Void, String> {
+
+        private static final String TAG = "SimpleTask";
 
         public static final String SERVER_URL = "https://omgvamp-hearthstone-v1.p.mashape.com/cards/qualities/Legendary?collectible=1&locale=enUS";
 
