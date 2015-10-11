@@ -84,7 +84,7 @@ public class BaseActivity extends AppCompatActivity {
                 Log.e(TAG, "Failed to send HTTP POST request due to: " + ex);
 
             }
-.            return null;
+            return null;
         }
     }
 }
