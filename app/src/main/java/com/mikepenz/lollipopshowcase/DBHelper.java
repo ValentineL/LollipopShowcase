@@ -170,9 +170,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-
-
-
     public void insertCard(SearchResponse CardDetails) {
 
         SQLiteDatabase db = getWritableDatabase();
@@ -197,16 +194,9 @@ public class DBHelper extends SQLiteOpenHelper {
         card.put("imgGold", CardDetails.getImgGold());
         card.put("locale", CardDetails.getLocale());
         db.insert("Card", null, card);
-        db.close();
 
 
-    }
-
-    public Cursor getCardId() {
-
-        SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
-
         String[] sqlSelect = {"id"};
         String sqlTables = "Card";
 
@@ -215,24 +205,17 @@ public class DBHelper extends SQLiteOpenHelper {
 
         c.moveToFirst();
 
-        return c;
-
-    }
-
-
-
-    public void insertMechanic(SearchResponse Mechanic) {
-
-        SQLiteDatabase db = getWritableDatabase();
         ContentValues mechanic = new ContentValues();
 
 
-        for (int i=0; i<Mechanic.getMechanics().size(); i++) {
-            mechanic.put("name", Mechanic.getMechanics().get(i).getName());
+        for (int i=0; i<CardDetails.getMechanics().size(); i++) {
+            mechanic.put("name", CardDetails.getMechanics().get(i).getName());
         }
-        mechanic.put("parentId", getCardId().getColumnIndex("id"));
+
+        mechanic.put("parentId", c.getColumnIndex("id"));
 
         db.insert("Mechanic", null, mechanic);
+
         db.close();
 
     }
