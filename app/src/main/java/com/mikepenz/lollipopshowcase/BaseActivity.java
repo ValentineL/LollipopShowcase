@@ -1,5 +1,6 @@
 package com.mikepenz.lollipopshowcase;
 
+import android.database.SQLException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -28,11 +29,36 @@ import com.google.gson.reflect.TypeToken;
 
 public class BaseActivity extends AppCompatActivity {
 
+    private DBHelper db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         new SimpleTask().execute();
+
+        db = new DBHelper(getApplicationContext());
+
+        try {
+
+            db.createDataBase();
+
+        }
+        catch (IOException ioe) {
+
+            throw new Error("Unable to create database");
+
+        }
+
+        try {
+
+            db.openDataBase();
+
+        }catch(SQLException sqle){
+
+            throw sqle;
+
+        }
 
     }
 
@@ -68,6 +94,10 @@ public class BaseActivity extends AppCompatActivity {
                     SearchResponse[] myObject = gson.fromJson(responseJSONString, SearchResponse[].class);
                     in.close();
 
+                    for(int i=0;i<myObject.length;i++)
+                    {
+                        /*db.insertCard(myObject.);*/
+                    }
 
             } catch(Exception ex) {
                 Log.e(TAG, "Failed to send HTTP POST request due to: " + ex);
@@ -76,6 +106,8 @@ public class BaseActivity extends AppCompatActivity {
             return null;
         }
     }
+
+
 
 
 }
