@@ -1,3 +1,4 @@
+/*
 package com.mikepenz.lollipopshowcase;
 
 
@@ -199,3 +200,4 @@ public class Result {
         this.mechanics = mechanics;
     }
 }
+*/

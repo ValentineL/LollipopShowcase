@@ -173,29 +173,29 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
 
-    public void insertCard(String cardId, String name, String cardSet, String type, String faction, String rarity, int cost, int attack, int health, String text, String inPlayText, String flavor, String artist, Boolean collectible, Boolean elite, String img, String imgGold, String locale, ArrayList<String> mechanics) {
+    public void insertCard(SearchResponse CardDetails) {
 
         SQLiteDatabase db = getWritableDatabase();
         ContentValues card = new ContentValues();
 
-        card.put("cardId", cardId);
-        card.put("name",name);
-        card.put("cardSet", cardSet);
-        card.put("type", type);
-        card.put("faction", faction);
-        card.put("rarity", rarity);
-        card.put("cost", cost);
-        card.put("attack",attack);
-        card.put("health", health);
-        card.put("text", text);
-        card.put("inPlayText", inPlayText);
-        card.put("flavor", flavor);
-        card.put("artist", artist);
-        card.put("collectible", collectible);
-        card.put("elite", elite);
-        card.put("img", img);
-        card.put("imgGold", imgGold);
-        card.put("locale", locale);
+        card.put("cardId", CardDetails.getCardId());
+        card.put("name",CardDetails.getName());
+        card.put("cardSet", CardDetails.getCardSet());
+        card.put("type", CardDetails.getType());
+        card.put("faction", CardDetails.getFaction());
+        card.put("rarity", CardDetails.getRarity());
+        card.put("cost", CardDetails.getCost());
+        card.put("attack",CardDetails.getAttack());
+        card.put("health", CardDetails.getHealth());
+        card.put("text", CardDetails.getText());
+        card.put("inPlayText", CardDetails.getInPlayText());
+        card.put("flavor", CardDetails.getFlavor());
+        card.put("artist", CardDetails.getArtist());
+        card.put("collectible", CardDetails.getCollectible());
+        card.put("elite", CardDetails.getElite());
+        card.put("img", CardDetails.getImg());
+        card.put("imgGold", CardDetails.getImgGold());
+        card.put("locale", CardDetails.getLocale());
         db.insert("Card", null, card);
         db.close();
 
@@ -221,14 +221,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
 
-    public void insertMechanic(SearchResponse srchrsp) {
+    public void insertMechanic(SearchResponse Mechanic) {
 
         SQLiteDatabase db = getWritableDatabase();
         ContentValues mechanic = new ContentValues();
 
 
-        for (int i=0; i<srchrsp.getMechanics().size(); i++) {
-            mechanic.put("name", srchrsp.getMechanics().get(i).getName());
+        for (int i=0; i<Mechanic.getMechanics().size(); i++) {
+            mechanic.put("name", Mechanic.getMechanics().get(i).getName());
         }
         mechanic.put("parentId", getCardId().getColumnIndex("id"));
 
