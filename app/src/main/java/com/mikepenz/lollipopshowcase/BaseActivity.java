@@ -86,9 +86,9 @@ public class BaseActivity extends AppCompatActivity {
                         response.append(inputLine);
                     }
 
-                    Gson gson = new Gson();
+                    Gson gson = new GsonBuilder().disableHtmlEscaping().create();
                     String responseJSONString = response.toString();
-                    SearchResponse myObject = gson.fromJson(responseJSONString, new TypeToken<Collection<SearchResponse>>() {
+                    SearchResponse[] myObject = gson.fromJson(responseJSONString, new TypeToken<Collection<SearchResponse>>() {
                     }.getType());
                     in.close();
 
