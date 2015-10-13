@@ -197,6 +197,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         ContentValues mechanic = new ContentValues();
 
+
         for (int i=0; i<CardDetails.getMechanics().size(); i++) {
             mechanic.put("name", CardDetails.getMechanics().get(i).getName());
         }
