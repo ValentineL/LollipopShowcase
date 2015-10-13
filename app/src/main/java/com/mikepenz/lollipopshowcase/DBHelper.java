@@ -193,26 +193,15 @@ public class DBHelper extends SQLiteOpenHelper {
         card.put("img", CardDetails.getImg());
         card.put("imgGold", CardDetails.getImgGold());
         card.put("locale", CardDetails.getLocale());
-        db.insert("Card", null, card);
-
-
-        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
-        String[] sqlSelect = {"id"};
-        String sqlTables = "Card";
-
-        qb.setTables(sqlTables);
-        Cursor c = qb.query(db, sqlSelect, null, null, null, null, null);
-
-        c.moveToFirst();
+        long id = db.insert("Card", null, card);
 
         ContentValues mechanic = new ContentValues();
-
 
         for (int i=0; i<CardDetails.getMechanics().size(); i++) {
             mechanic.put("name", CardDetails.getMechanics().get(i).getName());
         }
 
-        mechanic.put("parentId", c.getColumnIndex("id"));
+        mechanic.put("parentId", id);
 
         db.insert("Mechanic", null, mechanic);
 

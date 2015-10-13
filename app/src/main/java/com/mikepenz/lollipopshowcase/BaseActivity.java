@@ -96,8 +96,10 @@ public class BaseActivity extends AppCompatActivity {
 
                     for(int i=0;i<myObject.length;i++)
                     {
-                        /*db.insertCard(myObject.);*/
+                        db.insertCard(myObject[i]);
                     }
+
+
 
             } catch(Exception ex) {
                 Log.e(TAG, "Failed to send HTTP POST request due to: " + ex);
