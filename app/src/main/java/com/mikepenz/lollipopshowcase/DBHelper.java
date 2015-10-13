@@ -195,17 +195,17 @@ public class DBHelper extends SQLiteOpenHelper {
         card.put("locale", CardDetails.getLocale());
         long id = db.insert("Card", null, card);
 
-        ContentValues mechanic = new ContentValues();
+        if(CardDetails.getMechanics().size() != 0) {
+            ContentValues mechanic = new ContentValues();
 
+            for (int i = 0; i < CardDetails.getMechanics().size(); i++) {
+                mechanic.put("name", CardDetails.getMechanics().get(i).getName());
+            }
 
-        for (int i=0; i<CardDetails.getMechanics().size(); i++) {
-            mechanic.put("name", CardDetails.getMechanics().get(i).getName());
+            mechanic.put("parentId", id);
+
+            db.insert("Mechanic", null, mechanic);
         }
-
-        mechanic.put("parentId", id);
-
-        db.insert("Mechanic", null, mechanic);
-
         db.close();
 
     }
