@@ -92,7 +92,7 @@ public class DetailActivity extends AppCompatActivity {
             fillRow(view, "Application Name", mAppInfo.getName());
             ((ImageView) view.findViewById(R.id.appIcon)).setImageDrawable(mAppInfo.getIcon());
 
-            view = mRowContainer.findViewById(R.id.row_package_name);
+            /*view = mRowContainer.findViewById(R.id.row_package_name);
             fillRow(view, "Package Name", mAppInfo.getPackageName());
 
             view = mRowContainer.findViewById(R.id.row_activity);
@@ -105,7 +105,7 @@ public class DetailActivity extends AppCompatActivity {
             fillRow(view, "Version", mAppInfo.getVersionName() + " (" + mAppInfo.getVersionCode() + ")");
 
             view = mRowContainer.findViewById(R.id.row_moments);
-            fillRow(view, "Moments", "First installed: " + new Date(mAppInfo.getFirstInstallTime()) + "\nLast updated: " + new Date(mAppInfo.getLastUpdateTime()));
+            fillRow(view, "Moments", "First installed: " + new Date(mAppInfo.getFirstInstallTime()) + "\nLast updated: " + new Date(mAppInfo.getLastUpdateTime()));*/
         }
     }
 

@@ -20,47 +20,47 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private String DB_PATH;
     private static String DB_NAME = "CardsDB";
-    private SQLiteDatabase myDataBase;
+    /*private SQLiteDatabase myDataBase;*/
     private final Context myContext;
     private static final int DATABASE_VERSION = 1;
 
 
     public DBHelper(Context context) {
 
-        super(context, DB_NAME, null, 1);
+        super(context, DB_NAME, null, DATABASE_VERSION);
         this.myContext = context;
-        DB_PATH = context.getApplicationInfo().dataDir + "/databases/";
+       /* DB_PATH = context.getApplicationInfo().dataDir + "/databases/";*/
     }
 
     /**
      * Creates a empty database on the system and rewrites it with your own database.
      */
-    public void createDataBase() throws IOException {
+    /*public void createDataBase() throws IOException {
 
         boolean dbExist = checkDataBase();
 
         if (dbExist) {
-
+            this.getReadableDatabase();
         } else {
 
 
-            this.getReadableDatabase();
 
-            try {
 
-                copyDataBase();
+            *//*try {
+
+                *//**//*copyDataBase();*//**//*
 
             } catch (IOException e) {
 
                 throw new Error("Error copying database");
 
-            }
+            }*//*
         }
 
-    }
+    }*/
 
 
-    private boolean checkDataBase() {
+    /*private boolean checkDataBase() {
 
         SQLiteDatabase checkDB = null;
 
@@ -81,10 +81,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return checkDB != null ? true : false;
 
-    }
+    }*/
 
 
-    private void copyDataBase() throws IOException {
+   /* private void copyDataBase() throws IOException {
 
 
         InputStream myInput = myContext.getAssets().open(DB_NAME);
@@ -107,24 +107,24 @@ public class DBHelper extends SQLiteOpenHelper {
         myOutput.close();
         myInput.close();
 
-    }
+    }*/
 
-    public void openDataBase() throws SQLException {
+   /* public void openDataBase() throws SQLException {
 
         String myPath = DB_PATH + DB_NAME;
         myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
 
-    }
+    }*/
 
-    @Override
-    public synchronized void close() {
+    /*@Override*/
+    /*public synchronized void close() {
 
         if (myDataBase != null)
             myDataBase.close();
 
         super.close();
 
-    }
+    }*/
 
     @Override
     public void onCreate(SQLiteDatabase db) {

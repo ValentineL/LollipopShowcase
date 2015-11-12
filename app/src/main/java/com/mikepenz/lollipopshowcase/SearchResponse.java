@@ -1,5 +1,7 @@
 package com.mikepenz.lollipopshowcase;
 
+import android.databinding.BaseObservable;
+
 import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +47,29 @@ public class SearchResponse {
     private String locale;
     @SerializedName("mechanics")
     private ArrayList<Mechanic> mechanics = new ArrayList<>();
+
+    /*public SearchResponse(long id, String cardId, String name, String cardSet, String type, String faction, String rarity, int cost, int attack, int health, String text, String inPlayText, String flavor, String artist, Boolean collectible, Boolean elite, String img, String imgGold, String locale, ArrayList<Mechanic> mechanics) {
+        this.id = id;
+        this.cardId = cardId;
+        this.name = name;
+        this.cardSet = cardSet;
+        this.type = type;
+        this.faction = faction;
+        this.rarity = rarity;
+        this.cost = cost;
+        this.attack = attack;
+        this.health = health;
+        this.text = text;
+        this.inPlayText = inPlayText;
+        this.flavor = flavor;
+        this.artist = artist;
+        this.collectible = collectible;
+        this.elite = elite;
+        this.img = img;
+        this.imgGold = imgGold;
+        this.locale = locale;
+        this.mechanics = mechanics;
+    }*/
 
     public String getCardId() {
         return cardId;

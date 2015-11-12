@@ -12,6 +12,7 @@ import java.io.Reader;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import org.apache.http.HttpEntity;
@@ -22,6 +23,9 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -39,7 +43,7 @@ public class BaseActivity extends AppCompatActivity {
 
         db = new DBHelper(getApplicationContext());
 
-        try {
+        /*try {
 
             db.createDataBase();
 
@@ -58,7 +62,7 @@ public class BaseActivity extends AppCompatActivity {
 
             throw sqle;
 
-        }
+        }*/
 
     }
 
@@ -91,12 +95,18 @@ public class BaseActivity extends AppCompatActivity {
 
                     Gson gson = new GsonBuilder().disableHtmlEscaping().create();
                     String responseJSONString = response.toString();
-                    SearchResponse[] myObject = gson.fromJson(responseJSONString, SearchResponse[].class);
+                    JSONArray jArray = new JSONArray(responseJSONString);
+                    ArrayList<SearchResponse> myObject = gson.fromJson(String.valueOf(jArray), new TypeToken<ArrayList<SearchResponse>>() {
+                    }.getType());
                     in.close();
+                    con.disconnect();
 
-                    for(int i=0;i<myObject.length;i++)
+                    /*JSONObject jObject = new JSONObject(myObject);
+                    JSONArray jArray = jObject.getJSONArray("myArray"); */
+
+                    for(int i=0;i<myObject.size();i++)
                     {
-                        db.insertCard(myObject[i]);
+                        db.insertCard(myObject.get(i));
                     }
 
 

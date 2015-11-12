@@ -17,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:transitionName="appIcon" />
+            android:transitionName="appIcon"
+            android:text="{@searchResponse.imgGold}"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,7 +37,8 @@
                 android:gravity="center_vertical"
                 android:maxLines="1"
                 android:textColor="@color/text"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:text="{@searchResponse.cardId}"/>
 
             <View
                 android:layout_width="match_parent"
@@ -55,35 +57,8 @@
                 android:layout_marginTop="4dp"
                 android:maxLines="20"
                 android:textColor="@color/secondary"
-                android:textSize="14sp"></TextView>
-
-            <TextView
-            android:id="@+id/cardId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="4dp"
-            android:maxLines="20"
-            android:textColor="@color/secondary"
-            android:textSize="14sp"></TextView>
-
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="4dp"
-                android:maxLines="20"
-                android:textColor="@color/secondary"
-                android:textSize="14sp"></TextView>
+                android:textSize="14sp"
+                android:text="{@searchResponse.name}"></TextView>
 
             <TextView
                 android:id="@+id/cardSet"
@@ -97,7 +72,8 @@
                 android:layout_marginTop="4dp"
                 android:maxLines="20"
                 android:textColor="@color/secondary"
-                android:textSize="14sp"></TextView>
+                android:textSize="14sp"
+                android:text="{@searchResponse.cardSet}"></TextView>
 
             <TextView
                 android:id="@+id/type"
@@ -111,7 +87,8 @@
                 android:layout_marginTop="4dp"
                 android:maxLines="20"
                 android:textColor="@color/secondary"
-                android:textSize="14sp"></TextView>
+                android:textSize="14sp"
+                android:text="{@searchResponse.type}"></TextView>
 
             <TextView
                 android:id="@+id/faction"
@@ -125,7 +102,8 @@
                 android:layout_marginTop="4dp"
                 android:maxLines="20"
                 android:textColor="@color/secondary"
-                android:textSize="14sp"></TextView>
+                android:textSize="14sp"
+                android:text="{@searchResponse.faction}"></TextView>
 
             <TextView
                 android:id="@+id/rarity"
@@ -139,7 +117,8 @@
                 android:layout_marginTop="4dp"
                 android:maxLines="20"
                 android:textColor="@color/secondary"
-                android:textSize="14sp"></TextView>
+                android:textSize="14sp"
+                android:text="{@searchResponse.rarity}"></TextView>
 
             <TextView
                 android:id="@+id/cost"
@@ -153,7 +132,8 @@
                 android:layout_marginTop="4dp"
                 android:maxLines="20"
                 android:textColor="@color/secondary"
-                android:textSize="14sp"></TextView>
+                android:textSize="14sp"
+                android:text="{@searchResponse.cost}"></TextView>
 
             <TextView
                 android:id="@+id/attack"
@@ -167,7 +147,8 @@
                 android:layout_marginTop="4dp"
                 android:maxLines="20"
                 android:textColor="@color/secondary"
-                android:textSize="14sp"></TextView>
+                android:textSize="14sp"
+                android:text="{@searchResponse.attack}"></TextView>
 
             <TextView
                 android:id="@+id/health"
@@ -181,7 +162,8 @@
                 android:layout_marginTop="4dp"
                 android:maxLines="20"
                 android:textColor="@color/secondary"
-                android:textSize="14sp"></TextView>
+                android:textSize="14sp"
+                android:text="{@searchResponse.health}"></TextView>
 
             <TextView
                 android:id="@+id/text"
@@ -195,7 +177,8 @@
                 android:layout_marginTop="4dp"
                 android:maxLines="20"
                 android:textColor="@color/secondary"
-                android:textSize="14sp"></TextView>
+                android:textSize="14sp"
+                android:text="{@searchResponse.text}"></TextView>
 
             <TextView
                 android:id="@+id/inPlayText"
@@ -209,7 +192,8 @@
                 android:layout_marginTop="4dp"
                 android:maxLines="20"
                 android:textColor="@color/secondary"
-                android:textSize="14sp"></TextView>
+                android:textSize="14sp"
+                android:text="{@searchResponse.inPlayText}"></TextView>
 
             <TextView
                 android:id="@+id/flavor"
@@ -223,7 +207,8 @@
                 android:layout_marginTop="4dp"
                 android:maxLines="20"
                 android:textColor="@color/secondary"
-                android:textSize="14sp"></TextView>
+                android:textSize="14sp"
+                android:text="{@searchResponse.flavor}"></TextView>
 
             <TextView
                 android:id="@+id/artist"
@@ -237,7 +222,8 @@
                 android:layout_marginTop="4dp"
                 android:maxLines="20"
                 android:textColor="@color/secondary"
-                android:textSize="14sp"></TextView>
+                android:textSize="14sp"
+                android:text="{@searchResponse.artist}"></TextView>
 
             <TextView
                 android:id="@+id/collectible"
@@ -251,7 +237,8 @@
                 android:layout_marginTop="4dp"
                 android:maxLines="20"
                 android:textColor="@color/secondary"
-                android:textSize="14sp"></TextView>
+                android:textSize="14sp"
+                android:text="{@searchResponse.collectible}"></TextView>
 
             <TextView
                 android:id="@+id/elite"
@@ -265,7 +252,8 @@
                 android:layout_marginTop="4dp"
                 android:maxLines="20"
                 android:textColor="@color/secondary"
-                android:textSize="14sp"></TextView>
+                android:textSize="14sp"
+                android:text="{@searchResponse.elite}"></TextView>
 
             <TextView
                 android:id="@+id/locale"
@@ -279,7 +267,8 @@
                 android:layout_marginTop="4dp"
                 android:maxLines="20"
                 android:textColor="@color/secondary"
-                android:textSize="14sp"></TextView>
+                android:textSize="14sp"
+                android:text="{@searchResponse.locale}"></TextView>
 
         </LinearLayout>
     </LinearLayout>

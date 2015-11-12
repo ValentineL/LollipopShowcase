@@ -12,6 +12,8 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
 
+import com.mikepenz.lollipopshowcase.SearchResponse;
+
 import java.util.Locale;
 
 public class AppInfo implements Comparable<Object> {
