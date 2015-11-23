@@ -13,12 +13,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.mikepenz.lollipopshowcase.adapter.ApplicationAdapter;
-import com.mikepenz.lollipopshowcase.entity.AppInfo;
+import com.mikepenz.lollipopshowcase.adapter.CardAdapter;
+import com.mikepenz.lollipopshowcase.entity.CardInfo;
 import com.mikepenz.lollipopshowcase.itemanimator.CustomItemAnimator;
 /*import com.mikepenz.lollipopshowcase.util.UploadHelper;*/
 import com.mikepenz.materialdrawer.Drawer;
-import com.mikepenz.materialdrawer.DrawerBuilder;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,11 +27,11 @@ public class MainActivity extends BaseActivity {
     /*private static final int DRAWER_ITEM_SWITCH = 1;
     private static final int DRAWER_ITEM_OPEN_SOURCE = 10;*/
 
-    private List<AppInfo> applicationList = new ArrayList<AppInfo>();
+    private List<CardInfo> applicationList = new ArrayList<CardInfo>();
 
     private Drawer drawer;
 
-    private ApplicationAdapter mAdapter;
+    private CardAdapter mAdapter;
     /*private FloatingActionButton mFabButton;*/
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -105,7 +104,7 @@ public class MainActivity extends BaseActivity {
         mRecyclerView.setItemAnimator(new CustomItemAnimator());
         //mRecyclerView.setItemAnimator(new ReboundItemAnimator());
 
-        mAdapter = new ApplicationAdapter(new ArrayList<AppInfo>(), R.layout.row_application, MainActivity.this);
+        mAdapter = new CardAdapter(new ArrayList<CardInfo>(), R.layout.row_application, MainActivity.this);
         mRecyclerView.setAdapter(mAdapter);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
@@ -198,7 +197,7 @@ public class MainActivity extends BaseActivity {
      * @param appInfo
      * @param appIcon
      */
-    public void animateActivity(AppInfo appInfo, View appIcon) {
+    public void animateActivity(CardInfo appInfo, View appIcon) {
         Intent i = new Intent(this, DetailActivity.class);
         i.putExtra("appInfo", appInfo.getComponentName());
 
@@ -214,7 +213,7 @@ public class MainActivity extends BaseActivity {
 
         @Override
         protected void onPreExecute() {
-            mAdapter.clearApplications();
+            mAdapter.clearCards();
             super.onPreExecute();
         }
 
@@ -228,11 +227,11 @@ public class MainActivity extends BaseActivity {
 
             List<ResolveInfo> ril = getPackageManager().queryIntentActivities(mainIntent, 0);
             for (ResolveInfo ri : ril) {
-                applicationList.add(new AppInfo(MainActivity.this, ri));
+                applicationList.add(new CardInfo(MainActivity.this, ri));
             }
             Collections.sort(applicationList);
 
-            for (AppInfo appInfo : applicationList) {
+            for (CardInfo appInfo : applicationList) {
                 //load icons before shown. so the list is smoother
                 appInfo.getIcon();
             }
@@ -247,7 +246,7 @@ public class MainActivity extends BaseActivity {
             mProgressBar.setVisibility(View.GONE);
 
             //set data for list
-            mAdapter.addApplications(applicationList);
+            mAdapter.addCards(applicationList);
             mSwipeRefreshLayout.setRefreshing(false);
 
             super.onPostExecute(result);

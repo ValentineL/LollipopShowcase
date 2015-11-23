@@ -16,7 +16,7 @@ import com.mikepenz.lollipopshowcase.SearchResponse;
 
 import java.util.Locale;
 
-public class AppInfo implements Comparable<Object> {
+public class CardInfo implements Comparable<Object> {
 
     private Context ctx;
     private ResolveInfo ri;
@@ -26,7 +26,7 @@ public class AppInfo implements Comparable<Object> {
 
     String name = null;
 
-    public AppInfo(Context ctx, ResolveInfo ri) {
+    public CardInfo(Context ctx, ResolveInfo ri) {
         this.ctx = ctx;
         this.ri = ri;
 
@@ -130,7 +130,7 @@ public class AppInfo implements Comparable<Object> {
 
     @Override
     public int compareTo(Object o) {
-        AppInfo f = (AppInfo) o;
+        CardInfo f = (CardInfo) o;
         return getName().compareTo(f.getName());
     }
 

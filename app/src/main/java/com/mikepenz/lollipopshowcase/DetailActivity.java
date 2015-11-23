@@ -6,11 +6,9 @@ import android.content.ClipboardManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -20,12 +18,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.mikepenz.google_material_typeface_library.GoogleMaterial;
-import com.mikepenz.iconics.IconicsDrawable;
-import com.mikepenz.lollipopshowcase.entity.AppInfo;
+import com.mikepenz.lollipopshowcase.entity.CardInfo;
 /*import com.mikepenz.lollipopshowcase.util.UploadHelper;*/
-
-import java.util.Date;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -34,7 +28,7 @@ public class DetailActivity extends AppCompatActivity {
     private LinearLayout mRowContainer;
     private CoordinatorLayout mCoordinatorLayout;
 
-    private AppInfo mAppInfo = null;
+    private CardInfo mAppInfo = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +75,7 @@ public class DetailActivity extends AppCompatActivity {
             Intent intent = new Intent();
             intent.setComponent(componentName);
             ResolveInfo app = getPackageManager().resolveActivity(intent, 0);
-            mAppInfo = new AppInfo(this, app);
+            mAppInfo = new CardInfo(this, app);
         }
 
         if (mAppInfo != null) {

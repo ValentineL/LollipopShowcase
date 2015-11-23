@@ -9,37 +9,36 @@ import android.widget.TextView;
 
 import com.mikepenz.lollipopshowcase.MainActivity;
 import com.mikepenz.lollipopshowcase.R;
-import com.mikepenz.lollipopshowcase.entity.AppInfo;
+import com.mikepenz.lollipopshowcase.entity.CardInfo;
 
 import java.util.List;
 
-public class ApplicationAdapter extends RecyclerView.Adapter<ApplicationAdapter.ViewHolder> {
+public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
-    private List<AppInfo> applications;
+    private List<CardInfo> cards;
     private int rowLayout;
     private MainActivity mAct;
 
-    public ApplicationAdapter(List<AppInfo> applications, int rowLayout, MainActivity act) {
-        this.applications = applications;
+    public CardAdapter(List<CardInfo> cards, int rowLayout, MainActivity act) {
+        this.cards = cards;
         this.rowLayout = rowLayout;
         this.mAct = act;
     }
 
 
-    public void clearApplications() {
-        int size = this.applications.size();
+    public void clearCards() {
+        int size = this.cards.size();
         if (size > 0) {
             for (int i = 0; i < size; i++) {
-                applications.remove(0);
+                cards.remove(0);
             }
-
             this.notifyItemRangeRemoved(0, size);
         }
     }
 
-    public void addApplications(List<AppInfo> applications) {
-        this.applications.addAll(applications);
-        this.notifyItemRangeInserted(0, applications.size() - 1);
+    public void addCards(List<CardInfo> cards) {
+        this.cards.addAll(cards);
+        this.notifyItemRangeInserted(0, cards.size() - 1);
     }
 
     @Override
@@ -50,21 +49,21 @@ public class ApplicationAdapter extends RecyclerView.Adapter<ApplicationAdapter.
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, int i) {
-        final AppInfo appInfo = applications.get(i);
-        viewHolder.name.setText(appInfo.getName());
-        viewHolder.image.setImageDrawable(appInfo.getIcon());
+        final CardInfo cardInfo = cards.get(i);
+        viewHolder.name.setText(cardInfo.getName());
+        viewHolder.image.setImageDrawable(cardInfo.getIcon());
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAct.animateActivity(appInfo, viewHolder.image);
+                mAct.animateActivity(cardInfo, viewHolder.image);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return applications == null ? 0 : applications.size();
+        return cards == null ? 0 : cards.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
