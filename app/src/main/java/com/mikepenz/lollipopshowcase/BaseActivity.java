@@ -1,6 +1,8 @@
 package com.mikepenz.lollipopshowcase;
 
 import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -39,6 +41,8 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
         new SimpleTask().execute();
 
         db = new DBHelper(getApplicationContext());
@@ -65,6 +69,7 @@ public class BaseActivity extends AppCompatActivity {
         }*/
 
     }
+
 
     private class SimpleTask extends AsyncTask<Void, Void, String> {
 

@@ -133,7 +133,7 @@
                 android:maxLines="20"
                 android:textColor="@color/secondary"
                 android:textSize="14sp"
-                android:text="{@searchResponse.cost}"></TextView>
+                android:text="{String.valueOf(@searchResponse.cost)}"></TextView>
 
             <TextView
                 android:id="@+id/attack"
